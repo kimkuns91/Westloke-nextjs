@@ -35,6 +35,7 @@ const SignInForm = () => {
   return (
     /* eslint-disable-next-line */
     <div className="flex w-full max-w-[330px] mx-auto flex-col gap-4 min-h-screen justify-center z-20">
+      <h1 className="text-3xl font-bold mb-8">Sign In</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4" action="">
         <IconInput
           icon={<MdEmail />}

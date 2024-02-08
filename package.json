@@ -5,11 +5,12 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "prisma generate && next build",
     "lint": "next lint"
   },
   "dependencies": {
     "@prisma/client": "5.9.1",
+    "@radix-ui/react-dropdown-menu": "^2.0.6",
     "axios": "^1.6.7",
     "bcryptjs": "^2.4.3",
     "class-variance-authority": "^0.7.0",

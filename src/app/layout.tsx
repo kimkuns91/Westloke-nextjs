@@ -1,11 +1,16 @@
+import Footer from '@/components/Footer';
+import Header from '@/components/Header';
 import SessionProvider from '@/components/SessionProvider';
 import { cn } from '@/utils/style';
 import type { Metadata } from 'next';
 import { getServerSession } from 'next-auth';
-import { Inter } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 import './globals.css';
 
-const inter = Inter({ subsets: ['latin'] });
+const poppins = Poppins({
+  subsets: ['latin'],
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
+});
 
 export const metadata: Metadata = {
   title: 'Wesloke',
@@ -21,13 +26,16 @@ export default async function RootLayout({
 
   return (
     <html lang="en">
-      <body
-        className={cn(
-          'scrollbar flex bg-slate-950 text-sm text-slate-50 lg:text-base',
-          inter.className
-        )}
-      >
-        <SessionProvider session={session}>{children}</SessionProvider>
+      <body className={cn('scrollbar flex lg:text-base', poppins.className)}>
+        <SessionProvider session={session}>
+          <div className="flex flex-1 flex-col">
+            <Header />
+            <main className="flex flex-1 flex-col">
+              {children}
+              <Footer />
+            </main>
+          </div>
+        </SessionProvider>
       </body>
     </html>
   );
